@@ -11,8 +11,8 @@ from sklearn.externals import joblib
 
 #Feature Extraction part
 #Output - array of input (n,N_features)
-X_test=pd.read_csv('test.csv',header=0)
+X_test=pd.read_csv('test_Amrut.csv',header=0)
 X_test=X_test.values
-
-GMM_classifier=joblib.load('GMMClassifier.pkl')
+GMM_classifier=joblib.load('GMMclassifier.pkl')
 y_test=GMM_classifier.predict(X_test)
+print y_test
