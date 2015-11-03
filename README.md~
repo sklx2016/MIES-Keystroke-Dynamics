@@ -1,0 +1,10 @@
+# MIES-Keystroke-Dynamics
+Term Project on Keystroke Dynamics for Machine Intelligence and Expert Systems 2015
+
+
+1) GMM Code 
+	- Load data from "train.csv" in the same directory.
+
+2) GMM_test Code 
+	- Load the classifier from "GMMclassifier.pkl" in the same directory.
+	- Load data from "test.csv" in the same directory.

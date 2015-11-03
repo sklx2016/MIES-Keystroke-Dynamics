@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Oct 26 22:35:41 2015
+Created on Wed Oct 28 17:44:34 2015
 
-@author: vikiboy
+@author: Naman
 """
-#!/usr/bin/env python
 
 import numpy as np
 import pandas as pd
@@ -12,19 +11,29 @@ from sklearn.externals.six.moves import xrange
 from sklearn.mixture import GMM
 from sklearn.externals import joblib
 
+#from sklearn.decomposition import PCA
+#import matplotlib.pyplot as plt
 
-train=pd.read_csv('train.csv',header=0)
+train=pd.read_csv('data_final.csv',header=0)
 
 #Separate out X_train and y_train
 
-X_train=train
-y_train=train
+X=train
+y=train
 
-X_train=X_train.drop(['y'],axis=1) #remove the output label column
-y_train=y_train.drop(['lr','rl','lR','Lr','rL','Rl','lL','rR','ll','rr','l','r','L','R','Space','Enter','Backspace','cpm'],axis=1) #remove all the columns except the output label
+X=X.drop(['y'],axis=1) #remove the output label column
 
-X_train=X_train.values
-y_train=y_train.values
+y=y.drop(['lr','rl','Lr','Rl','ll','rr','l','r','L','R','Space','Enter','cpm'],axis=1) #remove all the columns except the output label
+
+
+
+
+X=X.values
+y=y.values
+
+
+X_train=X
+y_train=y
 
 
 #GMM 
@@ -61,8 +70,3 @@ for index, (name, classifier) in enumerate(classifiers.items()):
     print "The accuracy in training is ",train_accuracy,"\n"    
 
     joblib.dump(classifier,'GMMclassifier.pkl')
-    
-
-    
-                       
-           
